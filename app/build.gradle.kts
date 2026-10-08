@@ -1,3 +1,5 @@
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -8,6 +10,28 @@ plugins {
 android {
     namespace = "com.ytdlp.forandroid"
     compileSdk = 36
+
+    // Release signing from local.properties (git ignored). Without it the
+    // release falls back to the debug key so builds never break.
+    // Back up ~/keystores/ytdlp-release.keystore: losing it means the app
+    // can never be updated under the same identity.
+    val keystoreProps = Properties()
+    rootProject.file("local.properties").takeIf { props -> props.exists() }?.let { propsFile ->
+        propsFile.inputStream().use { stream -> keystoreProps.load(stream) }
+    }
+    val releaseStoreFile = keystoreProps.getProperty("release.store.file")
+        ?.let { path -> file(path) }?.takeIf { candidate -> candidate.exists() }
+
+    signingConfigs {
+        create("release") {
+            if (releaseStoreFile != null) {
+                storeFile = releaseStoreFile
+                storePassword = keystoreProps.getProperty("release.store.password")
+                keyAlias = keystoreProps.getProperty("release.key.alias")
+                keyPassword = keystoreProps.getProperty("release.key.password")
+            }
+        }
+    }
 
     defaultConfig {
         applicationId = "com.ytdlp.forandroid"
@@ -26,6 +50,11 @@ android {
     buildTypes {
         release {
             isMinifyEnabled = false
+            signingConfig = if (releaseStoreFile != null) {
+                signingConfigs.getByName("release")
+            } else {
+                signingConfigs.getByName("debug")
+            }
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
