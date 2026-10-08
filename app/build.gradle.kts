@@ -37,8 +37,8 @@ android {
         applicationId = "com.ytdlp.forandroid"
         minSdk = 26
         targetSdk = 36
-        versionCode = 1
-        versionName = "0.1.0"
+        versionCode = 2
+        versionName = "0.1.1"
 
         // youtubedl-android ships native .so per ABI; keep all four for now.
         // Use ABI splits / app bundles to slim downloads (arm64-v8a covers ~95% devices).
@@ -83,6 +83,11 @@ android {
     }
     buildFeatures {
         compose = true
+    }
+    // F-Droid forbids the Gradle dependency metadata signing block.
+    dependenciesInfo {
+        includeInApk = false
+        includeInBundle = false
     }
     packaging {
         jniLibs {

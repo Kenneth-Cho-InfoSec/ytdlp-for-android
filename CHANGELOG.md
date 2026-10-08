@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.1
+
+* Disable the Gradle dependency metadata signing block, required for F-Droid reproducible builds
+* No user facing changes
+
 ## 0.1.0, first release
 
 Native Android wrapper around unmodified yt-dlp running locally on device.
