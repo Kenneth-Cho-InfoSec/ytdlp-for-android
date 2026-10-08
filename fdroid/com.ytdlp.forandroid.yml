@@ -8,6 +8,10 @@ IssueTracker: https://github.com/Kenneth-Cho-InfoSec/ytdlp-for-android/issues
 Changelog: https://github.com/Kenneth-Cho-InfoSec/ytdlp-for-android/blob/main/CHANGELOG.md
 Donate: https://ko-fi.com/kennethchoinfosec
 
+AntiFeatures:
+  NonFreeNet:
+    en-US: Rely on GitHub API to check and download yt-dlp updates
+
 AutoName: ytdlp-for-android
 
 Summary: Download videos and audio with yt-dlp
@@ -33,8 +37,10 @@ Builds:
     subdir: app
     gradle:
       - yes
+    prebuild: sed -i -e 's/isEnable = true/isEnable = false/' build.gradle.kts
 
-AutoUpdateMode: Version v%v
-UpdateCheckMode: Tags
+AutoUpdateMode: Version +-(F-Droid) %v
+UpdateCheckMode: Tags ^v[0-9.]+$
+UpdateCheckData: app/build.gradle.kts|versionCode\s=\s(\d+)||v(.*)
 CurrentVersion: 0.1.0
 CurrentVersionCode: 1
