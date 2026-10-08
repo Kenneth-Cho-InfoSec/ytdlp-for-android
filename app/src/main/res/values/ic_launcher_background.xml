@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Sampled from appicon-down-arrow (sRGB 103,80,164). Adaptive background
+         matches the icon circle so non-round masks blend seamlessly. -->
+    <color name="ic_launcher_background">#FF6750A4</color>
+</resources>
