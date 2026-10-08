@@ -1,0 +1,5 @@
+Native Android interface for the unmodified yt-dlp engine running locally on your device.
+
+Paste a link or share one from YouTube, pick a quality preset or an exact format, and download to your Download folder. Audio only mode, parallel downloading, background downloads with progress notification, download history with one tap redownload, and an in app yt-dlp updater are all included.
+
+No account, no ads, no tracking. The engine is the stock yt-dlp build, updated through Stable and Nightly channels.

@@ -1,0 +1,40 @@
+Categories:
+  - Multimedia
+License: GPL-3.0-only
+AuthorName: Kenneth-Cho-InfoSec
+WebSite: https://github.com/Kenneth-Cho-InfoSec/ytdlp-for-android
+SourceCode: https://github.com/Kenneth-Cho-InfoSec/ytdlp-for-android
+IssueTracker: https://github.com/Kenneth-Cho-InfoSec/ytdlp-for-android/issues
+Changelog: https://github.com/Kenneth-Cho-InfoSec/ytdlp-for-android/blob/main/CHANGELOG.md
+Donate: https://ko-fi.com/kennethchoinfosec
+
+AutoName: ytdlp-for-android
+
+Summary: Download videos and audio with yt-dlp
+Description: |-
+  Native Android interface for the unmodified yt-dlp engine running
+  locally on your device.
+
+  Paste a link or share one from YouTube, pick a quality preset or an
+  exact format, and download to your Download folder. Audio only mode,
+  parallel downloading, background downloads with progress notification,
+  download history with one tap redownload, and an in app yt-dlp updater
+  are all included.
+
+  No account, no ads, no tracking.
+
+RepoType: git
+Repo: https://github.com/Kenneth-Cho-InfoSec/ytdlp-for-android
+
+Builds:
+  - versionName: 0.1.0
+    versionCode: 1
+    commit: v0.1.0
+    subdir: app
+    gradle:
+      - yes
+
+AutoUpdateMode: Version v%v
+UpdateCheckMode: Tags
+CurrentVersion: 0.1.0
+CurrentVersionCode: 1
