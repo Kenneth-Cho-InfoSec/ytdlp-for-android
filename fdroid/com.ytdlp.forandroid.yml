@@ -12,7 +12,6 @@ Changelog: https://github.com/Kenneth-Cho-InfoSec/ytdlp-for-android/blob/main/CH
 Donate: https://ko-fi.com/kennethchoinfosec
 
 AutoName: ytdlp-for-android
-
 Description: |-
   Native Android interface for the unmodified yt-dlp engine running
   locally on your device.
